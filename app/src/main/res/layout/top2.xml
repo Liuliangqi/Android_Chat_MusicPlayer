@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:background="#eee">
+
+    <ImageView
+        android:id="@+id/id_tv_tabline"
+        android:layout_width="100dp"
+        android:layout_height="4dp"
+        android:background="@drawable/tabline"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="37dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/id_ll_chat"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/id_tv_chat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="聊天"
+                android:textColor="#008000"/>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/id_ll_contact"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/id_tv_contact"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="通讯录"
+                android:textColor="#000000"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/id_ll_play"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/id_tv_play"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="娱乐"
+                android:textColor="#000000"/>
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+</LinearLayout>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="63dp"
+    android:layout_below="@+id/music_seekbar">
+
+    <ImageView
+        android:id="@+id/bottom_img_image"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_margin="5dp"
+        android:button="@null"
+        android:scaleType="fitXY"/>
+
+
+    <TextView
+        android:id="@+id/bottom_tv_title"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_toEndOf="@+id/bottom_img_image"
+        android:ellipsize="marquee"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:maxLines="1"
+        android:scrollHorizontally="true"
+        android:textColor="@android:color/black"
+        android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/bottom_tv_artist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/bottom_tv_title"
+        android:layout_below="@id/bottom_tv_title"
+        android:layout_marginTop="2dp"
+        android:textColor="#dddddd"
+        android:textSize="12sp"/>
+    
+    <ImageView
+        android:id="@+id/bottom_btn_loop"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="10dp"
+        android:layout_toStartOf="@+id/bottom_btn_previous"
+        android:src="@drawable/bt_playing_mode_cycle"
+        android:layout_centerVertical="true"/>
+
+    <Button
+        android:id="@+id/bottom_btn_next"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="3dp"
+        android:background="@drawable/selector_btn_next"/>
+
+    <Button
+        android:id="@+id/bottom_btn_play"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_centerVertical="true"
+        android:layout_toStartOf="@+id/bottom_btn_next"
+        android:background="@drawable/selector_btn_play"/>
+    <Button
+        android:id="@+id/bottom_btn_previous"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_centerVertical="true"
+        android:layout_toStartOf="@id/bottom_btn_play"
+        android:background="@drawable/selector_btn_prev"/>
+
+</RelativeLayout>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/timg">
+
+    <FrameLayout
+        android:id="@+id/main_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="74dp">
+        <ListView
+            android:id="@+id/lv_musics"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:listSelector="@drawable/selector_list_itme"
+            android:overScrollMode="never">
+        </ListView>
+    </FrameLayout>
+
+    <!--底部操作栏-->
+    <RelativeLayout
+        android:id="@+id/main_layout_bottombar"
+        android:layout_width="match_parent"
+        android:layout_height="74dp"
+        android:layout_alignParentBottom="true">
+
+        <SeekBar
+            android:id="@+id/music_seekbar"
+            android:layout_width="match_parent"
+            android:layout_height="7dp"
+            android:layout_marginBottom="2dp"
+            android:layout_marginTop="2dp"
+            android:layout_alignParentTop="true"/>
+
+        <include
+            android:id="@+id/bottom_bar"
+            layout="@layout/music_bottombar"/>
+    </RelativeLayout>
+
+</RelativeLayout>

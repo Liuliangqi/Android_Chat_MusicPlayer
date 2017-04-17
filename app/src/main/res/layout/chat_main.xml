@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/chat_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!--这里我不需要头部信息，我在底部有显示，所以直接布置主要布局-->
+    <!--但是这里得设置返回，设置-->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@drawable/chat_bg">
+
+
+        <!--这里展示聊天界面，需要自己定义的ListView-->
+        <com.example.liuliangqi.CP.ui.MyListView
+            android:id="@+id/msg_listview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@null"
+            android:listSelector="@android:color/transparent"
+            android:transcriptMode="normal"/>
+
+
+        <FrameLayout
+            android:id="@+id/rcChat_popup"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:visibility="gone">
+
+            <include
+                layout="@layout/voice_rcd_hint_window"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center" />
+        </FrameLayout>
+    </FrameLayout>
+
+    <!--信息输入-->
+    <LinearLayout
+        android:id="@+id/ll_chatmain_input"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/chat_background"
+        android:gravity="center_vertical">
+
+        <ImageButton
+            android:id="@+id/ib_chatmain_msg"
+            android:layout_width="43dp"
+            android:layout_height="43dp"
+            android:background="@drawable/chat_setmode_voice_selector" />
+
+
+        <ImageButton
+            android:id="@+id/face_btn"
+            android:layout_width="42dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:paddingEnd="5dp"
+            android:paddingStart="5dp"
+            android:src="@drawable/pop_btn_face_selector" />
+
+        <com.example.liuliangqi.CP.ui.MyEditText
+            android:id="@+id/msg_et"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginBottom="6dp"
+            android:layout_marginTop="6dp"
+            android:layout_weight="1"
+            android:background="@drawable/chat_edit_background"
+            android:inputType="textMultiLine"
+            android:paddingBottom="4dp"
+            android:paddingEnd="14dp"
+            android:paddingStart="10dp"
+            android:paddingTop="4dp"
+            android:selectAllOnFocus="false"
+            android:textColor="@color/chat_text"
+            android:textSize="16sp" />
+
+        <RelativeLayout
+            android:id="@+id/send_layout"
+            android:layout_width="56dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="start|center"
+            android:clickable="true"
+            android:gravity="center_vertical">
+
+            <Button
+                android:id="@+id/send_btn"
+                android:layout_width="match_parent"
+                android:layout_height="34dp"
+                android:layout_marginStart="4dp"
+                android:background="#dddddd"
+                android:enabled="false"
+                android:shadowColor="#ff568ab5"
+                android:shadowDx="0.0"
+                android:shadowDy="-1.0"
+                android:shadowRadius="0.2"
+                android:text="发送"
+                android:textColor="#555555"
+                android:textSize="14sp"
+                android:visibility="gone" />
+
+
+            <Button
+                android:id="@+id/btn_chat_affix"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/zf_show_add_photo_btn"
+                android:shadowColor="#ff568ab5"
+                android:shadowDx="0.0"
+                android:shadowDy="-1.0"
+                android:textColor="@color/send_btn_textcolor"
+                android:textSize="14sp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+
+    <!--语音输入-->
+    <LinearLayout
+        android:id="@+id/ll_chatmain_voice"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/chat_background"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+
+        <ImageButton
+            android:id="@+id/ib_chatmain_voice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:background="@drawable/chat_setmode_msg_selector" />
+
+
+        <TextView
+            android:id="@+id/tv_chatmain_press_voice"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@+id/ivPopUp"
+            android:background="@drawable/voice_background"
+            android:textColor="@color/chat_text"
+            android:gravity="center"
+            android:text="按住说话" />
+    </LinearLayout>
+
+    <!--拍照和相册-->
+    <LinearLayout
+        android:id="@+id/ll_chatmain_affix"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/chat_background"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tv_chatmain_affix_take_picture"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="5dp"
+            android:drawablePadding="2dp"
+            android:drawableTop="@drawable/zf_take_camera_btn_bg"
+            android:gravity="center_horizontal"
+            android:text="拍照"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/tv_chatmain_affix_album"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:drawablePadding="2dp"
+            android:drawableTop="@drawable/zf_take_photo_btn_bg"
+            android:gravity="center_horizontal"
+            android:text="相册"
+            android:textColor="#000000" />
+    </LinearLayout>
+
+    <!-- 显示每个表情 -->
+
+    <FrameLayout
+        android:id="@+id/panelLayout"
+        android:layout_width="match_parent"
+        android:layout_height="204dp"
+        android:background="#ff34373c"
+        android:visibility="gone">
+
+        <GridView
+            android:id="@+id/panel"
+            android:layout_width="match_parent"
+            android:layout_height="204dp"
+            android:gravity="center"
+            android:listSelector="#ff34373c"
+            android:numColumns="4"
+            android:paddingLeft="11dp"
+            android:paddingRight="11dp"
+            android:paddingTop="14dp"
+            android:scrollbars="none"
+            android:stretchMode="columnWidth"
+            android:verticalSpacing="14dp" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/chat_plugin_shadow" />
+    </FrameLayout>
+
+    <!-- 表情页viewpager -->
+
+    <LinearLayout
+        android:id="@+id/face_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#fff0f0f0"
+        android:orientation="vertical"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dip"
+        android:visibility="gone">
+
+        <com.example.liuliangqi.CP.view.JazzyViewPager
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/face_pager"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:background="#0000"
+            android:flipInterval="30"
+            android:persistentDrawingCache="animation"
+            app:style="cubeout"/>
+
+        <com.example.liuliangqi.CP.view.CirclePageIndicator
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/indicator"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp" />
+    </LinearLayout>
+</LinearLayout>
